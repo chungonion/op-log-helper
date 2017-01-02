@@ -33,6 +33,7 @@ def input_pattern():
                     break
         except:
             print "Pattern Error!"
+            continue
         if check_pattern == True:
             break
         else:
@@ -73,7 +74,8 @@ def result_generation(staff_nos, opening_time, closing_time, break_start_time, p
         print opening_time[0]+":"+opening_time[1]+" - "+break_time[i][0]+":"+break_time[i][1]
         for j in range(1, len(pattern)):
             print break_time[(j-1)*staff_nos+i+1][0]+":"+break_time[(j-1)*staff_nos+i+1][1]+" - "+break_time[j*staff_nos+i][0]+":"+break_time[j*staff_nos+i][1]
-        print break_time[j*staff_nos+i+1][0]+":"+break_time[j*staff_nos+i+1][1]+" - "+closing_time[0]+":"+closing_time[1]
+            if j == len(pattern)-1:
+                print break_time[j * staff_nos + i + 1][0] + ":" + break_time[j * staff_nos + i + 1][1] + " - " + closing_time[0] + ":" + closing_time[1]
 
 
 
